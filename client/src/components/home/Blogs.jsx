@@ -13,6 +13,7 @@ function Blogs() {
 
   useEffect(() => {
     fetchData("/post");
+    console.log("useEffect running... at home page");
   }, []);
 
   return (
