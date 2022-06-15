@@ -1,15 +1,11 @@
 import BlogCard from "../../designs/cards/BlogCard";
 
-function Posts() {
+function Posts({ data }) {
   return (
     <>
-      <>
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-      </>
+      {data.map((item) => (
+        <BlogCard key={item._id} data={item} />
+      ))}
     </>
   );
 }
