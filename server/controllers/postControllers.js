@@ -31,7 +31,7 @@ const postControllers = {
       const { id } = req.params;
       const findPost = await Post.findById(id);
 
-      res.status(200).json({ message: "Data found.", findPost });
+      res.status(200).json(findPost);
     } catch (err) {
       res.status(404).json({ message: "Post not found" });
     }
