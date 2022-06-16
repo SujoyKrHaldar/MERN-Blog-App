@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Sidebar from "../designs/lists/Sidebar";
+import Sidebar from "./components/Sidebar";
+import Loading from "../designs/others/Loading";
 import Posts from "./components/Posts";
+import Content from "./components/Content";
 
 function Blogs() {
   const [blog, setBlog] = useState([]);
+  const [Load, setLoad] = useState(false);
 
   const fetchData = async (url) => {
+    setLoad(true);
     const res = await axios.get(url);
+    setLoad(false);
     setBlog(res.data);
   };
 
@@ -18,19 +23,12 @@ function Blogs() {
 
   return (
     <>
-      <div className="py-16 w-full h-auto">
+      <div className="pt-[8rem] pb-8 w-full min-h-screen bg-[#eeeeee]">
         <div className="container w-full h-full">
-          <h2 className="mb-2 pb-4 border-b-2 border-[#707070]">
-            Latest <span className="font-bold">Posts</span>
-          </h2>
-          <div className="flex items-start justify-between gap-8 mt-8">
-            <div className="flex-1">
-              <Posts data={blog} />
-            </div>
-            <div className="flex-1 max-w-[435px]">
-              <Sidebar />
-            </div>
-          </div>
+          <Content />
+          {Load && <Loading />}
+          <Posts data={blog} />
+          <Sidebar />
         </div>
       </div>
     </>

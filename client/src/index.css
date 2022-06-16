@@ -50,5 +50,5 @@ p {
 }
 
 a.active {
-  background-color: #e1e1e1;
+  font-weight: 600;
 }

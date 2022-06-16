@@ -24,7 +24,7 @@ function StoryById() {
   return (
     <>
       <Layout>
-        <div className="container w-full h-screen py-[8rem]">
+        <div className="container w-full h-screen py-[8rem] bg-[#eeeeee]">
           {story.photo && (
             <div className="w-full h-[250px] bg-white ">
               <img

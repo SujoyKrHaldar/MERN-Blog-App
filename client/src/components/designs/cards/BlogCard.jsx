@@ -5,15 +5,11 @@ import Moment from "react-moment";
 function BlogCard({ data }) {
   return (
     <>
-      <div
-        className="flex items-center justify-start gap-4 mb-8 last:mb-0 
-      hover:bg-white duration-200 hover:shadow-xl hover:scale-105 
-      border-[1px] border-[#bcbcbc] hover:border-black"
-      >
-        <div className="flex-1 w-full max-w-[200px] h-[250px] bg-black ">
+      <div className=" bg-white shadow-sm hover:shadow-lg  border-[1px] hover:border-[#dadada]">
+        <div className="w-full h-[160px] bg-black">
           {data?.photo ? (
             <img
-              src="https://images.unsplash.com/photo-1571167530149-c1105da4c2c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80"
+              src="https://images.unsplash.com/photo-1494587351196-bbf5f29cff42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
               alt="blog"
             />
           ) : (
@@ -23,22 +19,27 @@ function BlogCard({ data }) {
           )}
         </div>
 
-        <div className="p-8 flex-1">
-          <p className="text-2xl mb-2 font-bold">{data.title}</p>
-          <p className="text-[1rem] mb-2 max-w-[350px]">
+        <div className="p-4">
+          <p className="text-base mb-2 font-bold">{data.title}</p>
+          <p className="text-sm mb-2 max-w-[350px]">
             {data.desc.length > 95 ? data.desc.slice(0, 95) + "..." : data.desc}
             {}
           </p>
-          <p className="text-[1rem] mb-4">
-            by <span className="font-bold">{data.username}</span> ,{" "}
-            <span>
+          <p className="text-sm mb-4">
+            <i>
+              by <span className="font-medium">{data.username}</span>
+            </i>
+          </p>
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <Link to={`/stories/${data._id}`}>
+              <p className="text-[0.9rem] font-bold">Read more</p>
+            </Link>
+
+            <p className="text-sm">
               <Moment format="MMM Do YY">{data.createdAt}</Moment>
               {/* or {new Date(data.createdAt).toDateString()} */}
-            </span>
-          </p>
-          <Link to={`/stories/${data._id}`}>
-            <p className="text-[0.9rem] font-bold">Read more</p>
-          </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
