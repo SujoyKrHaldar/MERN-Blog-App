@@ -20,11 +20,9 @@ const authControllers = {
       await newUser.save();
 
       res.status(201).json({
-        message: `${req.body.username} registered successfully`,
+        message: `Registered successfully`,
         others,
       });
-
-      console.log("User registered successfully.");
     } catch (err) {
       res.status(500).json({ message: "Server error. " + err.message });
     }

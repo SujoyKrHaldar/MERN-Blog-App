@@ -12,8 +12,8 @@ function Story() {
   const fetchData = async (url) => {
     setLoad(true);
     const res = await axios.get(url);
-    setLoad(false);
     setBlog(res.data);
+    setLoad(false);
   };
 
   useEffect(() => {

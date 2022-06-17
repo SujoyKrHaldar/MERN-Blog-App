@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function LoginForm() {
   return (
     <>
-      <form className="mt-2">
+      <form className="mt-4">
         <div className="mb-4">
           <label htmlFor="email-address" className="sr-only">
             Email address
@@ -47,17 +47,15 @@ function LoginForm() {
           </Link>
         </div>
 
-        <div>
-          <button
-            type="submit"
-            className="group relative w-full flex justify-center p-3 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <div className="absolute left-0 inset-y-0 flex items-center pl-3 text-lg text-indigo-500 group-hover:text-indigo-400">
-              <HiLockClosed />
-            </div>
-            Log in
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="group relative w-full flex justify-center p-2 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-[#393939] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          <div className="absolute left-0 inset-y-0 flex items-center pl-3 text-lg text-[#6f6f6f]">
+            <HiLockClosed />
+          </div>
+          Login
+        </button>
       </form>
     </>
   );
