@@ -1,38 +1,29 @@
 import { HiLockClosed } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 function LoginForm() {
   return (
     <>
       <form className="mt-4">
         <div className="mb-4">
-          <label htmlFor="email-address" className="sr-only">
-            Email address
-          </label>
+          <p className="mb-2 text-sm">Username</p>
           <input
-            id="email-address"
-            name="email"
-            type="email"
-            autoComplete="email"
+            type="text"
+            autoComplete="username"
             required
             className="appearance-none  relative block w-full p-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-            placeholder="Email address"
           />
           {/* <p className="text-sm text-red-600 mt-1">Enter valid Email.</p> */}
         </div>
 
         <div className="mb-4">
-          <label htmlFor="password" className="sr-only">
-            Password
-          </label>
+          <p className="mb-2 text-sm">Password</p>
           <input
-            id="password"
-            name="password"
             type="password"
-            autoComplete="current-password"
             required
             className="appearance-none  relative block w-full p-3  border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-            placeholder="Password"
           />
           {/* <p className="text-sm text-red-600 mt-1">Enter valid password.</p> */}
         </div>
