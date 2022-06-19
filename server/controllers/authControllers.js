@@ -48,7 +48,7 @@ const authControllers = {
 
       const { password, ...data } = user._doc;
 
-      res.status(200).json({ data });
+      res.status(200).json({ message: "Login successful.", data });
     } catch (err) {
       res.status(500).json({ message: "Server error. " + err.message });
     }

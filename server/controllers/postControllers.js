@@ -8,16 +8,16 @@ const postControllers = {
       let filteredPost;
 
       if (username) {
-        filteredPost = await Post.find({ username });
+        filteredPost = await Post.find({ username }).sort({ createdAt: -1 });
         res.status(200).json(filteredPost);
       } else if (category) {
         filteredPost = await Post.find({
           category: {
             $in: [category],
           },
-        });
+        }).sort({ createdAt: -1 });
       } else {
-        filteredPost = await Post.find();
+        filteredPost = await Post.find().sort({ createdAt: -1 });
       }
 
       res.status(200).json(filteredPost);

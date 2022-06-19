@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-
 import { HiLockClosed } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -38,8 +37,14 @@ function RegisterForm() {
       // console.log(res);
     } catch (err) {
       setLoading(false);
-      // console.log(err);
+
       setError(err.message);
+
+      setTimeout(() => {
+        setError("");
+      }, 3000);
+
+      // console.log(err);
     }
 
     setUsername(" ");
