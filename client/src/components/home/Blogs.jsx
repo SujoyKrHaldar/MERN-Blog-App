@@ -7,25 +7,30 @@ import Content from "./components/Content";
 
 function Blogs() {
   const [blog, setBlog] = useState([]);
+  const [error, setError] = useState("");
   const [Load, setLoad] = useState(false);
 
   const fetchData = async (url) => {
     setLoad(true);
-    const res = await axios.get(url);
+    try {
+      const res = await axios.get(url);
+      console.log(res);
+      setBlog(res.data);
+    } catch (err) {
+      setError("Failed to fetch data.");
+    }
     setLoad(false);
-    setBlog(res.data);
   };
 
   useEffect(() => {
     fetchData("/post");
-    console.log("useEffect running... at home page");
   }, []);
 
   return (
     <>
       <div className="pt-[8rem] pb-8 w-full min-h-screen bg-[#eeeeee]">
         <div className="container w-full h-full">
-          <Content />
+          <Content error={error} />
           {Load && <Loading />}
           <Posts data={blog} />
           <Sidebar />

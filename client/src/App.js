@@ -16,6 +16,8 @@ function App() {
   const { user } = useContext(Context);
   console.log("From context", user);
 
+  // const user = false;
+
   return (
     <>
       <Routes>
@@ -39,6 +41,8 @@ function App() {
         {!user && <Route path="/register" element={<Register />} />}
         {!user && <Route path="/login" element={<Login />} />}
 
+        {/* <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} /> */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
